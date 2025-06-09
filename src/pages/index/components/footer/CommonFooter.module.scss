@@ -1,0 +1,25 @@
+.footer{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+
+    width: 100%;
+    border: 1px solid $color-gray-100;
+}
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    gap: 12px;
+
+    &__button{
+        background: transparent;
+        border: none;
+        outline: none;
+
+        padding-top: 5px;
+    }
+}

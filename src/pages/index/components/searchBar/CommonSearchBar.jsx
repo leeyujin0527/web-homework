@@ -5,24 +5,27 @@ import { useRecoilState } from 'recoil'
 import React, { useState } from 'react'
 
 function CommonSearchBar() {
-  const [serach,setSearch] = useRecoilState(searchState)
-  const [text,setText] = useState('')
+  const [search, setSearch] = useRecoilState(searchState)
+  const [text, setText] = useState('')
+
   const onSearch = () => {
-    if(text == ''){
+    if (text === '') {
       setSearch('korea')
-    }else{
+    } else {
       setSearch(text)
     }
   }
+
   const onChange = (event) => {
     console.log(event.target.value)
     setText(event.target.value)
   }
-  const keyDown = (event : React.KeyboardEvent) => {
-    if(event.key === 'Enter'){
-      if(text === ''){
+
+  const keyDown = (event) => {
+    if (event.key === 'Enter') {
+      if (text === '') {
         setSearch('korea')
-      }else{
+      } else {
         setSearch(text)
       }
     }
@@ -31,8 +34,15 @@ function CommonSearchBar() {
   return (
     <div className={styles.searchBar}>
       <div className={styles.searchBar__search}>
-        <input type='text' placeholder='찾으실 이미지를 검색하세요' value={text} className={styles.searchBar__search__input} onChange={onChange} onKeyDown={keyDown} />
-        <img src={searchIcon} onClick={onSearch}/>
+        <input
+          type='text'
+          placeholder='찾으실 이미지를 검색하세요'
+          value={text}
+          className={styles.searchBar__search__input}
+          onChange={onChange}
+          onKeyDown={keyDown}
+        />
+        <img src={searchIcon} onClick={onSearch} />
       </div>
     </div>
   )

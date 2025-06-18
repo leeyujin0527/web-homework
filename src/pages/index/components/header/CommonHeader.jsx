@@ -1,7 +1,13 @@
+import { useRecoilState } from 'recoil'
 import styles from './CommonHeader.module.scss'
 import logo from '@/assets/images/splashLogo.png'
+import { showBookmarkPageState } from '../../../../recoil/atoms/bookmarkState';
 
 function CommonHeader() {
+  const [showBookmarkPage,setShowBookmarkPage] = useRecoilState(showBookmarkPageState);
+  const moveToBookmark = () =>{
+    setShowBookmarkPage(!showBookmarkPage)
+  }
   return (
     <header className={styles.header}>
       <div className={styles.header__logoBox}>
@@ -10,7 +16,7 @@ function CommonHeader() {
       </div>
       <div className={styles.header__profileBox}>
         <button className={styles.header__profileBox__button}>사진제출</button>
-        <button className={styles.header__profileBox__button}>북마크</button>
+        <button className={styles.header__profileBox__button} onClick={moveToBookmark}>북마크</button>
         <span className={styles.header__profileBox__userName}>leeyujin  |  sksdldbwls@gmail.com</span>
       </div>
     </header>

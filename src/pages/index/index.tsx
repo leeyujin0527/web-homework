@@ -11,7 +11,8 @@ import { useRecoilValue, useRecoilValueLoadable } from 'recoil'
 import DetailDialog from './components/dialog/DetailDialog'
 import { showBookmarkPageState,backgroundPageShowState } from '../../recoil/atoms/bookmarkState';
 import BookmarkPage from './components/bookmark/BookmarkPage';
-import BackGroundPage from './components/BackGroundPage/BackGroundPage';
+import BackGroundPage from './components/BackGroundPage/BackGroundPage'
+
 
 function Index() {
     const [imgData, setImgData] = useState<CardDTO>()

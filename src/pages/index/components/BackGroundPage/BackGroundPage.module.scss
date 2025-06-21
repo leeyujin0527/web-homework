@@ -1,0 +1,163 @@
+.backgroundPage {
+    min-height: 100vh;
+    background: linear-gradient(to top, 
+#f5f5f5 5%, 
+#4a4a4a,#333);
+    padding: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .title {
+      text-align: center;
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 300;
+      font-weight: 500;
+ 
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .macbookContainer {
+      display: flex;
+      justify-content: center;
+      margin-top: -190px;
+      padding-top: 0;
+
+      .macbookWrapper {
+        position: relative;
+        filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+
+        .macbookFrame {
+          position: relative;
+          width: 100vw;
+          max-width: 1300px;
+          height: auto;
+
+          .macbookSvg {
+            width: 100%;
+            height: auto;
+            display: block;
+          }
+        }
+
+        .screenArea {
+          position: absolute;
+          // 맥북 SVG 내부 화면 영역에 맞게 조정 (실제 SVG에 따라 수정 필요)
+          top: 20%;
+          left: 15%;
+          width: 70%;
+          height: 42%;
+          border-radius: 8px;
+          overflow: hidden;
+
+          .previewImage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+
+          }
+
+          .emptyScreen {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, 
+#1e3c72 0%, 
+#2a5298 100%);
+
+            .placeholderContent {
+              text-align: center;
+              color: rgba(255, 255, 255, 0.7);
+
+              .placeholderIcon {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+                opacity: 0.5;
+              }
+
+              p {
+                margin: 0;
+                font-size: 0.9rem;
+                font-weight: 300;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .uploadArea {
+      background: rgba(255, 255, 255, 0.8);
+      border: 2px dashed rgba(0, 0, 0, 0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      margin-bottom: 2rem;
+      margin-top: -190px;
+
+      &.dragging {
+        background: rgba(255, 255, 255, 0.9);
+        border-color: 
+#4CAF50;
+        border-style: solid;
+      }
+
+      .fileInput {
+        display: none;
+      }
+
+      .uploadContent {
+        .uploadIcon {
+          font-size: 3rem;
+          opacity: 0.6;
+        }
+
+        .uploadText {
+          color: #333;
+          font-size: 1.1rem;
+          margin-bottom: 1.5rem;
+          font-weight: 300;
+        }
+
+        .uploadButton {
+          background: linear-gradient(135deg, #666 0%, #333 100%);
+          color: white;
+          border: none;
+          padding: 1rem 2rem;
+          border-radius: 30px;
+          font-size: 1rem;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+
+      .resetButton {
+        background: rgba(255, 255, 255, 0.8);
+        color: #333;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        padding: 0.75rem 1.5rem;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+    }
+  }

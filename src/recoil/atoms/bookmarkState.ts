@@ -1,6 +1,11 @@
 import { atom } from "recoil"
 import { CardDTO } from "../../pages/index/types/card"
 
+export const backgroundPageShowState = atom<boolean>({
+    key : 'showBackgroundPageState',
+    default : false
+})
+
 export const bookmarkedImagesState = atom<CardDTO[]>({ //북마크 된 카드 리스트
     key:'bookmarkState',
     default : []

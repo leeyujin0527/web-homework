@@ -1,6 +1,7 @@
 import React from 'react'
 
-function BookmarkPage() {
+function BackGroundPage() {
+    
   return (
     <div>
       
@@ -8,6 +9,4 @@ function BookmarkPage() {
   )
 }
 
-export default BookmarkPage
-
- 
+export default BackGroundPage

@@ -9,14 +9,16 @@ import { CardDTO } from './types/card'
 import { imageData } from '../../recoil/atoms/selectors/imageSelectors'
 import { useRecoilValue, useRecoilValueLoadable } from 'recoil'
 import DetailDialog from './components/dialog/DetailDialog'
-import { showBookmarkPageState } from '../../recoil/atoms/bookmarkState';
+import { showBookmarkPageState,backgroundPageShowState } from '../../recoil/atoms/bookmarkState';
 import BookmarkPage from './components/bookmark/BookmarkPage';
+import BackGroundPage from './components/BackGroundPage/BackGroundPage';
 
 function Index() {
     const [imgData, setImgData] = useState<CardDTO>()
     const imgSelector = useRecoilValueLoadable(imageData)
     const [open, setOpen] = useState<boolean>(false)
     const showBookmarkPage = useRecoilValue(showBookmarkPageState);
+    const showBackgroundPage = useRecoilValue<boolean>(backgroundPageShowState)
 
     const cardList = useMemo(() => {
         console.log(imgSelector)
@@ -44,6 +46,11 @@ function Index() {
                 <BookmarkPage/>
             </div>
         );
+    }
+    if(showBackgroundPage){
+        return(
+            <BackGroundPage/>
+        )
     }
 
     return (

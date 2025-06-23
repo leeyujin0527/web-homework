@@ -1,10 +1,17 @@
 import React, { useState, useRef } from 'react';
 import styles from './BackGroundPage.module.scss';
+import { backgroundPageShowState } from '../../../../recoil/atoms/bookmarkState';
+import { useRecoilState } from 'recoil';
 
 function BackGroundPage() {
   const [uploadedImage, setUploadedImage] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef(null);
+  const [showPage,setShowPage] = useRecoilState(backgroundPageShowState)
+
+  const gohome = () =>{
+    setShowPage(false)
+  }
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -56,7 +63,10 @@ function BackGroundPage() {
     <div className={styles.backgroundPage}>
       <div className={styles.container}>
         <h1 className={styles.title}>맥북 배경화면 미리보기</h1>
-        
+        <p className={styles.subtitle}>
+          좋아하는 사진을 맥북 화면에서 미리 확인해보세요
+        </p>
+        <img src='src/assets/images/splashLogo.png' className={styles.logo} onClick={gohome}/>
         <div className={styles.macbookContainer}>
           <div className={styles.macbookWrapper}>
             {/* 화면 영역에 배경화면 표시 (맥북 SVG 뒤에 위치) */}
@@ -101,13 +111,13 @@ function BackGroundPage() {
           <div className={styles.uploadContent}>
             <div className={styles.uploadIcon}>📁</div>
             <p className={styles.uploadText}>
-              {isDragging ? '여기에 이미지를 놓으세요' : '이미지를 드래그하거나 클릭하여 업로드'}
+              {isDragging ? '여기에 이미지를 놓으세요! 🎯' : '이미지를 드래그하거나 클릭하여 업로드'}
             </p>
             <button 
               onClick={handleButtonClick}
               className={styles.uploadButton}
             >
-              이미지 업로드
+              📷 이미지 선택하기
             </button>
           </div>
         </div>
@@ -115,7 +125,7 @@ function BackGroundPage() {
         {uploadedImage && (
           <div className={styles.controls}>
             <button onClick={resetImage} className={styles.resetButton}>
-              다시 선택
+              🔄 다시 선택하기
             </button>
           </div>
         )}

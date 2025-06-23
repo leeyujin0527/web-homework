@@ -1,163 +1,344 @@
 .backgroundPage {
-    min-height: 100vh;
-    background: linear-gradient(to top, 
-#f5f5f5 5%, 
-#4a4a4a,#333);
-    padding: 1rem;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 25%, #ffa8a8 50%, #ffcc99 75%, #ffd4a3 100%);
+  padding: 2rem 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
+  position: relative;
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+  .container {
+    max-width: 1600px;  // 컨테이너 크기 증가
+    margin: 0 auto;
+  }
 
-    .title {
-      text-align: center;
-      color: white;
-      font-size: 2.5rem;
-      font-weight: 300;
-      font-weight: 500;
- 
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+  .title {
+    text-align: center;
+    color: white;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    letter-spacing: -0.5px;
+  }
 
-    .macbookContainer {
-      display: flex;
-      justify-content: center;
-      margin-top: -190px;
-      padding-top: 0;
+  .subtitle {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 3rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
 
-      .macbookWrapper {
+  .logo{
+    width: 100px;
+    height: 80px;
+    position: absolute;
+    top :0;
+    margin-top: 30px;
+    margin-left: 0;
+  }
+
+  .macbookContainer {
+    display: flex;
+    justify-content: center;
+
+    .macbookWrapper {
+      position: relative;
+      filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.3));
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .macbookFrame {
         position: relative;
-        filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+        width: 1600px;
 
-        .macbookFrame {
-          position: relative;
-          width: 100vw;
-          max-width: 1300px;
+        .macbookSvg {
+          width: 100%;
           height: auto;
+          display: block;
+        }
+      }
 
-          .macbookSvg {
-            width: 100%;
-            height: auto;
-            display: block;
+      .screenArea {
+        position: absolute;
+        top: 20%;
+        left: 15%;
+        width: 70%;
+        height: 42%;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+
+        .previewImage {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.02);
           }
         }
 
-        .screenArea {
-          position: absolute;
-          // 맥북 SVG 내부 화면 영역에 맞게 조정 (실제 SVG에 따라 수정 필요)
-          top: 20%;
-          left: 15%;
-          width: 70%;
-          height: 42%;
-          border-radius: 8px;
-          overflow: hidden;
+        .emptyScreen {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          position: relative;
 
-          .previewImage {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+              radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
           }
 
-          .emptyScreen {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, 
-#1e3c72 0%, 
-#2a5298 100%);
+          .placeholderContent {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            z-index: 1;
+            position: relative;
 
-            .placeholderContent {
-              text-align: center;
-              color: rgba(255, 255, 255, 0.7);
+            .placeholderIcon {
+              font-size: 2.5rem;
+              margin-bottom: 0.5rem;
+              opacity: 0.7;
+            }
 
-              .placeholderIcon {
-                font-size: 3rem;
-                margin-bottom: 1rem;
-                opacity: 0.5;
-              }
-
-              p {
-                margin: 0;
-                font-size: 0.9rem;
-                font-weight: 300;
-              }
+            p {
+              margin: 0;
+              font-size: 0.9rem;
+              font-weight: 400;
             }
           }
         }
       }
     }
+  }
 
-    .uploadArea {
-      background: rgba(255, 255, 255, 0.8);
-      border: 2px dashed rgba(0, 0, 0, 0.2);
-      border-radius: 16px;
-      padding: 2rem;
-      text-align: center;
+  .uploadArea {
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px dashed rgba(255, 107, 107, 0.3);
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(20px);
+    margin: 2rem 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.98);
+      border-color: rgba(255, 107, 107, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    &.dragging {
+      background: rgba(255, 255, 255, 0.98);
+      border-color: #ff6b6b;
+      border-style: solid;
+      transform: scale(1.02);
+      box-shadow: 0 16px 48px rgba(255, 107, 107, 0.3);
+    }
+
+    .fileInput {
+      display: none;
+    }
+
+    .uploadContent {
+      .uploadIcon {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        opacity: 0.7;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
+
+      .uploadText {
+        color: #333;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        font-weight: 500;
+        line-height: 1.5;
+      }
+
+      .uploadButton {
+        background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 50%, #ffa8a8 100%);
+        color: white;
+        border: none;
+        padding: 1.2rem 2.5rem;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        letter-spacing: -0.3px;
+
+        &:hover {
+          background: linear-gradient(135deg, #ff5757 0%, #ff7a7a 50%, #ff9494 100%);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    .resetButton {
+      background: rgba(255, 255, 255, 0.9);
+      color: #ff6b6b;
+      border: 2px solid rgba(255, 107, 107, 0.3);
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
       cursor: pointer;
       transition: all 0.3s ease;
       backdrop-filter: blur(10px);
+      font-weight: 600;
+      font-size: 1rem;
+
+      &:hover {
+        background: rgba(255, 255, 255, 1);
+        border-color: #ff6b6b;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  // 반응형 디자인
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2.2rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
       margin-bottom: 2rem;
-      margin-top: -190px;
+    }
 
-      &.dragging {
-        background: rgba(255, 255, 255, 0.9);
-        border-color: 
-#4CAF50;
-        border-style: solid;
+    .macbookContainer {
+      margin: 1.5rem 0;
+      
+      .macbookWrapper {
+        .macbookFrame {
+          max-width: 100%;
+        }
       }
+    }
 
-      .fileInput {
-        display: none;
-      }
+    .uploadArea {
+      padding: 2rem 1.5rem;
+      margin: 1.5rem 0;
 
       .uploadContent {
         .uploadIcon {
           font-size: 3rem;
-          opacity: 0.6;
         }
 
         .uploadText {
-          color: #333;
           font-size: 1.1rem;
           margin-bottom: 1.5rem;
-          font-weight: 300;
         }
 
         .uploadButton {
-          background: linear-gradient(135deg, #666 0%, #333 100%);
-          color: white;
-          border: none;
           padding: 1rem 2rem;
-          border-radius: 30px;
           font-size: 1rem;
-          font-weight: 500;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+
+    .title {
+      font-size: 1.8rem;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+    }
+
+    .uploadArea {
+      padding: 1.5rem 1rem;
+      border-radius: 20px;
+
+      .uploadContent {
+        .uploadIcon {
+          font-size: 2.5rem;
+        }
+
+        .uploadText {
+          font-size: 1rem;
+        }
+
+        .uploadButton {
+          padding: 0.9rem 1.8rem;
+          font-size: 0.95rem;
         }
       }
     }
 
     .controls {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-
       .resetButton {
-        background: rgba(255, 255, 255, 0.8);
-        color: #333;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        padding: 0.75rem 1.5rem;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
       }
     }
   }
+
+  // 애니메이션 효과
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .title, .subtitle {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .macbookContainer {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+  }
+
+  .uploadArea {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+  }
+
+  .controls {
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+  }
+}

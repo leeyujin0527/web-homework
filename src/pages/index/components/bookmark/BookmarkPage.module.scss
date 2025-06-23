@@ -1,224 +1,318 @@
 .bookmarkPage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.95) 0%, rgba(255, 142, 142, 0.95) 25%, rgba(255, 168, 168, 0.95) 50%, rgba(255, 204, 153, 0.95) 75%, rgba(255, 212, 163, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
+
+  &__header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
+    right: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+    backdrop-filter: blur(20px);
+    color: #333;
+    padding: 20px 30px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-  
-    &__header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 30px rgba(255, 107, 107, 0.2);
+    z-index: 1001;
+    border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+
+    &__title {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 50%, #ffa8a8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+    }
+
+    &__closeBtn {
+      background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 50%, #ffa8a8 100%);
+      border: none;
       color: white;
-      padding: 20px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      z-index: 1001;
-  
-      &__title {
-        margin: 0;
-        font-size: 24px;
-        font-weight: 600;
-        letter-spacing: -0.5px;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+      letter-spacing: -0.2px;
+
+      &:hover {
+        background: linear-gradient(135deg, #ff5757 0%, #ff7a7a 50%, #ff9494 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
       }
-  
-      &__closeBtn {
-        background: rgba(255, 255, 255, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        color: white;
-        padding: 8px 16px;
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-  
-        &:hover {
-          background: rgba(255, 255, 255, 0.3);
-          transform: translateY(-1px);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-  
-        &:active {
-          transform: translateY(0);
-        }
+
+      &:active {
+        transform: translateY(0);
       }
     }
-  
-    &__content {
-      width: 90%;
-      max-width: 1200px;
-      height: calc(100vh - 100px);
-      margin-top: 80px;
-      background: white;
-      border-radius: 20px;
-      padding: 30px;
-      overflow-y: auto;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  
-      &::-webkit-scrollbar {
-        width: 8px;
+  }
+
+  &__content {
+    width: 90%;
+    max-width: 1400px;
+    height: calc(100vh - 100px);
+    margin-top: 80px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 30px;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 107, 107, 0.1);
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(255, 107, 107, 0.1);
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #ff6b6b, #ffa8a8);
+      border-radius: 4px;
+      
+      &:hover {
+        background: linear-gradient(135deg, #ff5757, #ff9494);
       }
-  
-      &::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 4px;
-      }
-  
-      &::-webkit-scrollbar-thumb {
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        border-radius: 4px;
-        
-        &:hover {
-          background: linear-gradient(135deg, #5a6fd8, #6a4190);
-        }
-      }
-  
-      &__count {
-        margin-bottom: 25px;
-        font-size: 16px;
-        color: #666;
-        font-weight: 500;
-        padding: 12px 20px;
-        background: linear-gradient(135deg, #f8f9ff, #f1f3ff);
-        border-radius: 12px;
-        border-left: 4px solid #667eea;
-      }
-  
-      &__imageGrid {
-        display: grid;
+    }
+
+    &__count {
+      margin-bottom: 25px;
+      font-size: 18px;
+      color: #333;
+      font-weight: 600;
+      padding: 16px 24px;
+      background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 168, 168, 0.1) 100%);
+      border-radius: 16px;
+      border-left: 4px solid #ff6b6b;
+      box-shadow: 0 4px 20px rgba(255, 107, 107, 0.1);
+      letter-spacing: -0.3px;
+    }
+
+    &__imageGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      padding: 10px 0;
+
+      @media (max-width: 768px) {
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 20px;
-        padding: 10px 0;
-  
-        @media (max-width: 768px) {
-          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-          gap: 15px;
-        }
-  
-        @media (max-width: 480px) {
-          grid-template-columns: 1fr;
-          gap: 12px;
-        }
+      }
+
+      @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+        gap: 16px;
       }
     }
-  
-    .emptyMessage {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 300px;
-      text-align: center;
-      color: #999;
-  
-      p {
-        margin: 8px 0;
-        font-size: 16px;
-        line-height: 1.5;
-  
-        &:first-child {
-          font-size: 18px;
-          font-weight: 600;
-          color: #666;
-          margin-bottom: 12px;
-        }
-  
-        &:last-child {
-          font-size: 14px;
-          opacity: 0.8;
-        }
+  }
+
+  .emptyMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    text-align: center;
+    color: #666;
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(255, 168, 168, 0.05) 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 2px dashed rgba(255, 107, 107, 0.2);
+
+    &::before {
+      content: "📖";
+      font-size: 64px;
+      margin-bottom: 24px;
+      opacity: 0.7;
+      filter: drop-shadow(0 4px 8px rgba(255, 107, 107, 0.2));
+    }
+
+    p {
+      margin: 8px 0;
+      line-height: 1.6;
+
+      &:first-child {
+        font-size: 20px;
+        font-weight: 700;
+        color: #ff6b6b;
+        margin-bottom: 12px;
+        letter-spacing: -0.3px;
       }
-  
+
+      &:last-child {
+        font-size: 16px;
+        opacity: 0.8;
+        color: #666;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+// 반응형 디자인
+@media (max-width: 768px) {
+  .bookmarkPage {
+    &__header {
+      padding: 15px 20px;
+
+      &__title {
+        font-size: 22px;
+      }
+
+      &__closeBtn {
+        padding: 8px 16px;
+        font-size: 13px;
+      }
+    }
+
+    &__content {
+      width: 95%;
+      padding: 24px;
+      margin-top: 70px;
+      height: calc(100vh - 90px);
+      border-radius: 20px;
+
+      &__count {
+        font-size: 16px;
+        padding: 14px 20px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .emptyMessage {
+      height: 320px;
+      padding: 1.5rem;
+
       &::before {
-        content: "📖";
         font-size: 48px;
         margin-bottom: 20px;
-        opacity: 0.6;
       }
-    }
-  }
-  
-  // 반응형 디자인
-  @media (max-width: 768px) {
-    .bookmarkPage {
-      &__header {
-        padding: 15px 20px;
-  
-        &__title {
-          font-size: 20px;
-        }
-  
-        &__closeBtn {
-          padding: 6px 12px;
-          font-size: 13px;
-        }
-      }
-  
-      &__content {
-        width: 95%;
-        padding: 20px;
-        margin-top: 70px;
-        height: calc(100vh - 90px);
-  
-        &__count {
-          font-size: 14px;
-          padding: 10px 15px;
-          margin-bottom: 20px;
-        }
-      }
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .bookmarkPage {
-      &__header {
-        padding: 12px 15px;
-  
-        &__title {
+
+      p {
+        &:first-child {
           font-size: 18px;
         }
-      }
-  
-      &__content {
-        width: 98%;
-        padding: 15px;
-        border-radius: 15px;
-  
-        &__count {
-          font-size: 13px;
-          padding: 8px 12px;
+
+        &:last-child {
+          font-size: 14px;
         }
       }
     }
   }
-  
-  // 애니메이션 효과
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  
+}
+
+@media (max-width: 480px) {
   .bookmarkPage {
-    animation: fadeIn 0.3s ease-out;
+    &__header {
+      padding: 12px 16px;
+
+      &__title {
+        font-size: 20px;
+      }
+
+      &__closeBtn {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+    }
+
+    &__content {
+      width: 98%;
+      padding: 20px;
+      border-radius: 16px;
+
+      &__count {
+        font-size: 15px;
+        padding: 12px 16px;
+      }
+    }
+
+    .emptyMessage {
+      height: 280px;
+      padding: 1rem;
+
+      &::before {
+        font-size: 40px;
+        margin-bottom: 16px;
+      }
+
+      p {
+        &:first-child {
+          font-size: 16px;
+        }
+
+        &:last-child {
+          font-size: 13px;
+        }
+      }
+    }
   }
-  
-  .bookmarkPage__content {
-    animation: fadeIn 0.4s ease-out 0.1s both;
+}
+
+// 애니메이션 효과
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
   }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bookmarkPage {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.bookmarkPage__header {
+  animation: slideInFromTop 0.4s ease-out 0.1s both;
+}
+
+.bookmarkPage__content {
+  animation: fadeIn 0.5s ease-out 0.2s both;
+
+  &__count {
+    animation: slideInFromTop 0.4s ease-out 0.3s both;
+  }
+
+  &__imageGrid {
+    animation: fadeIn 0.6s ease-out 0.4s both;
+  }
+}
+
+.emptyMessage {
+  animation: fadeIn 0.8s ease-out 0.5s both;
+}

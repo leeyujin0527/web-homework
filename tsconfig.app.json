@@ -20,7 +20,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /* JSX와 JS 파일 허용 설정 */
+    "allowJs": true,
+    "checkJs": false
   },
   "include": ["src"]
 }

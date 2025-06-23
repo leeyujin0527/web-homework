@@ -16,12 +16,14 @@ export default defineConfig({
       '@apis': fileURLToPath(new URL('./src/apis', import.meta.url)),
     },
   },
-  // SCSS 전역 사용
   css: {
     preprocessorOptions: {
       scss: {
         additionalData: `@import "@assets/styles/main.scss";`
       },
     },
+  },
+  server: {
+    port: 2203, // ← 여기가 중요!
   },
 })

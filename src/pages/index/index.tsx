@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react';
+import { useState } from 'react';
 import styles from './index.module.scss';
 import CommonHeader from './components/header/CommonHeader'
 import CommonSearchBar from './components/searchBar/CommonSearchBar'

@@ -1,4 +1,3 @@
-import { key } from "localforage";
 import { atom } from "recoil";
 
 export const pageState = atom<Number>({

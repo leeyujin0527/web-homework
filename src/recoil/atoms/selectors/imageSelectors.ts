@@ -1,7 +1,6 @@
 import { selector } from "recoil";
 import axios from "axios";
 import { searchState } from "../searchState";
-import { error } from "console";
 import { pageState } from "../pageState";
 
 const API_URL = 'https://api.unsplash.com/search/photos'
